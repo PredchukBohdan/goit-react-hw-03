@@ -7,8 +7,8 @@ import { ContactForm } from "./components/ContactForm/ContactForm";
 
 function App() {
   const [contacts, setContacts] = useState(() => {
-    const saveContacts = JSON.parse(localStorage.getItem("contacts"));
-    return Array.isArray(saveContacts).length > 0 ? saveContacts : contactsData;
+    const saveContacts = localStorage.getItem("contacts");
+    return saveContacts ? JSON.parse(saveContacts) : contactsData;
   });
   const [filter, setFilter] = useState("");
 
